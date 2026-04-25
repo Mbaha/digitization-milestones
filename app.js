@@ -502,6 +502,7 @@ function renderOverview() {
     const completed = items.filter((item) => state.checks[item.id]).length;
     const percent = items.length ? Math.round((completed / items.length) * 100) : 0;
     const clone = template.content.cloneNode(true);
+    clone.querySelector(".sector-card").style.setProperty("--sector-accent", getSectorAccent(sector));
     clone.querySelector("h3").textContent = sector;
     clone.querySelector(".sector-card__ratio").textContent = `${completed}/${items.length}`;
     clone.querySelector(".progress-bar span").style.width = `${percent}%`;
@@ -542,6 +543,7 @@ function renderMilestones() {
       const label = cardClone.querySelector(".milestone-card");
       const checkbox = cardClone.querySelector(".milestone-card__checkbox");
       const checked = Boolean(state.checks[item.id]);
+      label.style.setProperty("--sector-accent", getSectorAccent(item.sector));
 
       checkbox.checked = checked;
       checkbox.addEventListener("change", async () => {
@@ -561,4 +563,19 @@ function renderMilestones() {
 
     timelineGroups.append(groupClone);
   });
+}
+
+function getSectorAccent(sector) {
+  switch (sector) {
+    case "Education":
+      return "var(--education)";
+    case "Agriculture":
+      return "var(--agriculture)";
+    case "Healthcare Services":
+      return "var(--healthcare)";
+    case "Tourism":
+      return "var(--tourism)";
+    default:
+      return "var(--shared)";
+  }
 }
