@@ -8,6 +8,8 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./icon-512.png">
   <link rel="stylesheet" href="./styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-config.js"></script>
 </head>
 <body>
   <div class="app-shell">
@@ -17,53 +19,126 @@
       <p class="hero__text">
         A mobile tracker for the Education, Agriculture, Healthcare Services, and Tourism timelines.
       </p>
-      <div class="hero__stats" id="hero-stats" aria-live="polite"></div>
     </header>
 
-    <main class="layout">
-      <section class="panel panel--controls">
-        <div class="panel__header">
-          <h2>Filters</h2>
-          <button class="ghost-button" id="reset-button" type="button">Reset checks</button>
-        </div>
-        <div class="filters">
-          <label class="field">
-            <span>Sector</span>
-            <select id="sector-filter">
-              <option value="all">All sectors</option>
-            </select>
-          </label>
-          <label class="field">
-            <span>Month</span>
-            <select id="month-filter">
-              <option value="all">All months</option>
-            </select>
-          </label>
-          <label class="field">
-            <span>Stage</span>
-            <select id="stage-filter">
-              <option value="all">All stages</option>
-            </select>
-          </label>
-        </div>
+    <main class="view-stack">
+      <section class="view is-active" data-view="dashboard">
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Dashboard</h2>
+            <button class="ghost-button" id="share-button" type="button">Copy summary</button>
+          </div>
+          <div class="hero__stats hero__stats--interactive" id="hero-stats" aria-live="polite"></div>
+          <div class="dashboard-actions">
+            <button class="action-card" id="open-active-board" type="button">
+              <span class="action-card__label">Working Board</span>
+              <span class="action-card__title">Focus on open milestones</span>
+              <span class="action-card__text">Completed tasks stay hidden until you ask to see them.</span>
+            </button>
+            <button class="action-card" id="open-progress-view" type="button">
+              <span class="action-card__label">Sector View</span>
+              <span class="action-card__title">Check sector-by-sector delivery</span>
+              <span class="action-card__text">Review Education, Agriculture, Healthcare Services, Tourism, and shared work.</span>
+            </button>
+          </div>
+        </section>
       </section>
 
-      <section class="panel panel--overview">
-        <div class="panel__header">
-          <h2>Sector Progress</h2>
-          <button class="ghost-button" id="share-button" type="button">Copy summary</button>
-        </div>
-        <div class="overview-grid" id="overview-grid"></div>
+      <section class="view" data-view="filters">
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Filters</h2>
+            <button class="ghost-button" id="reset-button" type="button">Reset checks</button>
+          </div>
+          <section class="sync-card" id="sync-card">
+            <div class="sync-card__topline">
+              <h3>Team Sync</h3>
+              <span class="sync-pill" id="sync-status-pill">Local only</span>
+            </div>
+            <p class="sync-copy" id="sync-copy">
+              Shared cloud sync is not configured yet. The app is saving on this device only.
+            </p>
+            <div class="sync-actions">
+              <label class="field field--full" id="sync-email-field">
+                <span>Team email</span>
+                <input id="sync-email" type="email" placeholder="name@example.org" autocomplete="email">
+              </label>
+              <div class="sync-buttons">
+                <button class="ghost-button" id="sync-send-link" type="button">Send sign-in link</button>
+                <button class="ghost-button" id="sync-refresh" type="button">Refresh cloud data</button>
+                <button class="ghost-button" id="sync-signout" type="button">Sign out</button>
+              </div>
+            </div>
+          </section>
+          <div class="filters">
+            <label class="field">
+              <span>Sector</span>
+              <select id="sector-filter">
+                <option value="all">All sectors</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Month</span>
+              <select id="month-filter">
+                <option value="all">All months</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Stage</span>
+              <select id="stage-filter">
+                <option value="all">All stages</option>
+              </select>
+            </label>
+          </div>
+        </section>
       </section>
 
-      <section class="panel panel--timeline">
-        <div class="panel__header">
-          <h2>Milestone Board</h2>
-          <div class="panel__meta" id="results-count"></div>
-        </div>
-        <div class="timeline-groups" id="timeline-groups"></div>
+      <section class="view" data-view="progress">
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Sector Progress</h2>
+            <div class="panel__meta" id="progress-caption"></div>
+          </div>
+          <div class="overview-grid" id="overview-grid"></div>
+        </section>
+      </section>
+
+      <section class="view" data-view="board">
+        <section class="panel">
+          <div class="panel__header">
+            <h2 id="board-title">Milestone Board</h2>
+            <div class="panel__meta" id="results-count"></div>
+          </div>
+          <div class="board-toolbar">
+            <div class="segmented" role="tablist" aria-label="Board mode">
+              <button class="segmented__button is-active" id="show-active" type="button">Active</button>
+              <button class="segmented__button" id="show-completed" type="button">Completed</button>
+            </div>
+          </div>
+          <div class="timeline-groups" id="timeline-groups"></div>
+          <p class="empty-state" id="empty-state" hidden>No milestones match the current view.</p>
+        </section>
       </section>
     </main>
+
+    <nav class="bottom-nav" aria-label="Primary">
+      <button class="bottom-nav__item is-active" data-target-view="dashboard" type="button">
+        <span class="bottom-nav__icon">◔</span>
+        <span>Dashboard</span>
+      </button>
+      <button class="bottom-nav__item" data-target-view="filters" type="button">
+        <span class="bottom-nav__icon">⎇</span>
+        <span>Filters</span>
+      </button>
+      <button class="bottom-nav__item" data-target-view="progress" type="button">
+        <span class="bottom-nav__icon">▤</span>
+        <span>Progress</span>
+      </button>
+      <button class="bottom-nav__item" data-target-view="board" type="button">
+        <span class="bottom-nav__icon">✓</span>
+        <span>Board</span>
+      </button>
+    </nav>
   </div>
 
   <template id="sector-card-template">

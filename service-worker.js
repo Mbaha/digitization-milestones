@@ -1,10 +1,12 @@
-const cacheName = "digitization-milestones-v2";
+const cacheName = "digitization-milestones-v3";
 const appFiles = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.webmanifest",
+  "./supabase-config.js",
+  "./supabase-setup.sql",
   "./icon-192.png",
   "./icon-512.png"
 ];
