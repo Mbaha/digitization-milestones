@@ -1,48 +1,55 @@
 const milestones = [
-  { id: "m1", month: "April", week: "Week 3", stage: "Identification of indicators", sector: "Education", title: "Identify sector indicators for Education" },
-  { id: "m2", month: "April", week: "Week 4", stage: "Identification of indicators", sector: "Agriculture", title: "Identify sector indicators for Agriculture" },
-  { id: "m3", month: "May", week: "Week 1", stage: "Identification of indicators", sector: "Healthcare Services", title: "Identify sector indicators for Healthcare Services" },
-  { id: "m4", month: "May", week: "Week 2", stage: "Identification of indicators", sector: "Tourism", title: "Identify sector indicators for Tourism" },
-  { id: "m5", month: "April", week: "Week 4", stage: "Confirmation with Statistics Botswana", sector: "Education", title: "Confirm Education indicators with Statistics Botswana" },
-  { id: "m6", month: "May", week: "Week 1", stage: "Confirmation with Statistics Botswana", sector: "Agriculture", title: "Confirm Agriculture indicators with Statistics Botswana" },
-  { id: "m7", month: "May", week: "Week 2", stage: "Confirmation with Statistics Botswana", sector: "Healthcare Services", title: "Confirm Healthcare indicators with Statistics Botswana" },
-  { id: "m8", month: "May", week: "Week 3", stage: "Confirmation with Statistics Botswana", sector: "Tourism", title: "Confirm Tourism indicators with Statistics Botswana" },
-  { id: "m9", month: "May", week: "Week 1", stage: "Identification of administrative data collection forms", sector: "Education", title: "Identify administrative forms for Education" },
-  { id: "m10", month: "May", week: "Week 2", stage: "Identification of administrative data collection forms", sector: "Agriculture", title: "Identify administrative forms for Agriculture" },
-  { id: "m11", month: "May", week: "Week 3", stage: "Identification of administrative data collection forms", sector: "Healthcare Services", title: "Identify administrative forms for Healthcare Services" },
-  { id: "m12", month: "May", week: "Week 4", stage: "Identification of administrative data collection forms", sector: "Tourism", title: "Identify administrative forms for Tourism" },
-  { id: "m13", month: "May", week: "Week 2", stage: "Standardization of forms by Statistics Botswana", sector: "Education", title: "Standardize Education forms with Statistics Botswana" },
-  { id: "m14", month: "May", week: "Week 3", stage: "Standardization of forms by Statistics Botswana", sector: "Agriculture", title: "Standardize Agriculture forms with Statistics Botswana" },
-  { id: "m15", month: "May", week: "Week 4", stage: "Standardization of forms by Statistics Botswana", sector: "Healthcare Services", title: "Standardize Healthcare forms with Statistics Botswana" },
-  { id: "m16", month: "June", week: "Week 1", stage: "Standardization of forms by Statistics Botswana", sector: "Tourism", title: "Standardize Tourism forms with Statistics Botswana" },
-  { id: "m17", month: "April", week: "Week 3", stage: "Building a web app", sector: "Shared", title: "Complete solution architecture and database schema" },
-  { id: "m18", month: "April", week: "Week 4", stage: "Building a web app", sector: "Shared", title: "Finalize shared requirements and module design" },
-  { id: "m19", month: "May", week: "Week 3", stage: "Building a web app", sector: "Education", title: "Build Education web app module" },
-  { id: "m20", month: "May", week: "Week 4", stage: "Building a web app", sector: "Agriculture", title: "Build Agriculture web app module" },
-  { id: "m21", month: "June", week: "Week 1", stage: "Building a web app", sector: "Healthcare Services", title: "Build Healthcare Services web app module" },
-  { id: "m22", month: "June", week: "Week 2", stage: "Building a web app", sector: "Tourism", title: "Build Tourism web app module" },
-  { id: "m23", month: "June", week: "Week 4", stage: "Building a web app", sector: "Shared", title: "Complete integration, reporting dashboard, and bug fixing" },
-  { id: "m24", month: "July", week: "Week 1", stage: "Building a web app", sector: "Shared", title: "Apply user acceptance changes" },
-  { id: "m25", month: "July", week: "Week 3", stage: "Building a web app", sector: "Shared", title: "Finish production configuration and hosting" },
-  { id: "m26", month: "July", week: "Week 4", stage: "Building a web app", sector: "Shared", title: "Provide hypercare support after release" },
-  { id: "m27", month: "May", week: "Week 4", stage: "Testing the web app", sector: "Education", title: "Test Education web app module" },
-  { id: "m28", month: "June", week: "Week 1", stage: "Testing the web app", sector: "Agriculture", title: "Test Agriculture web app module" },
-  { id: "m29", month: "June", week: "Week 2", stage: "Testing the web app", sector: "Healthcare Services", title: "Test Healthcare Services web app module" },
-  { id: "m30", month: "June", week: "Week 3", stage: "Testing the web app", sector: "Tourism", title: "Test Tourism web app module" },
-  { id: "m31", month: "June", week: "Week 4", stage: "Testing the web app", sector: "Shared", title: "Run integrated system testing across all sectors" },
-  { id: "m32", month: "July", week: "Week 1", stage: "Testing the web app", sector: "Shared", title: "Complete user acceptance testing and sign-off" },
-  { id: "m33", month: "July", week: "Week 2", stage: "Testing the web app", sector: "Shared", title: "Train focal persons and system administrators" },
-  { id: "m34", month: "July", week: "Week 3", stage: "Testing the web app", sector: "Shared", title: "Validate go-live and data migration" },
-  { id: "m35", month: "July", week: "Week 4", stage: "Testing the web app", sector: "Shared", title: "Monitor rollout, support users, and hand over" },
-  { id: "m36", month: "June", week: "Week 4", stage: "Cross-sector review", sector: "Shared", title: "Review progress across all sectors" },
-  { id: "m37", month: "June", week: "Week 4", stage: "Cross-sector review", sector: "Shared", title: "Confirm final indicator set and metadata" },
-  { id: "m38", month: "June", week: "Week 4", stage: "Cross-sector review", sector: "Shared", title: "Complete gap analysis and form consolidation" },
-  { id: "m39", month: "June", week: "Week 4", stage: "Cross-sector review", sector: "Shared", title: "Approve cross-sector standard template pack" }
+  { id: "m1", month: "April", week: "Week 3", stage: "KPI identification by M&E", sector: "Education", title: "M&E identifies Education KPIs" },
+  { id: "m2", month: "April", week: "Week 4", stage: "KPI identification by M&E", sector: "Agriculture", title: "M&E identifies Agriculture KPIs" },
+  { id: "m3", month: "May", week: "Week 1", stage: "KPI identification by M&E", sector: "Healthcare Services", title: "M&E identifies Healthcare Services KPIs" },
+  { id: "m4", month: "May", week: "Week 2", stage: "KPI identification by M&E", sector: "Tourism", title: "M&E identifies Tourism KPIs" },
+
+  { id: "m5", month: "April", week: "Week 4", stage: "KPI confirmation with Statistics Botswana", sector: "Education", title: "Confirm Education KPIs with Statistics Botswana" },
+  { id: "m6", month: "May", week: "Week 1", stage: "KPI confirmation with Statistics Botswana", sector: "Agriculture", title: "Confirm Agriculture KPIs with Statistics Botswana" },
+  { id: "m7", month: "May", week: "Week 2", stage: "KPI confirmation with Statistics Botswana", sector: "Healthcare Services", title: "Confirm Healthcare Services KPIs with Statistics Botswana" },
+  { id: "m8", month: "May", week: "Week 3", stage: "KPI confirmation with Statistics Botswana", sector: "Tourism", title: "Confirm Tourism KPIs with Statistics Botswana" },
+
+  { id: "m9", month: "May", week: "Week 1", stage: "Sector identification of administrative forms", sector: "Education", title: "Sector identifies Education administrative data forms" },
+  { id: "m10", month: "May", week: "Week 2", stage: "Sector identification of administrative forms", sector: "Agriculture", title: "Sector identifies Agriculture administrative data forms" },
+  { id: "m11", month: "May", week: "Week 3", stage: "Sector identification of administrative forms", sector: "Healthcare Services", title: "Sector identifies Healthcare Services administrative data forms" },
+  { id: "m12", month: "May", week: "Week 4", stage: "Sector identification of administrative forms", sector: "Tourism", title: "Sector identifies Tourism administrative data forms" },
+
+  { id: "m13", month: "May", week: "Week 2", stage: "Forms meeting and SB standardization", sector: "Education", title: "Hold forms meeting and standardize Education forms with SB" },
+  { id: "m14", month: "May", week: "Week 3", stage: "Forms meeting and SB standardization", sector: "Agriculture", title: "Hold forms meeting and standardize Agriculture forms with SB" },
+  { id: "m15", month: "May", week: "Week 4", stage: "Forms meeting and SB standardization", sector: "Healthcare Services", title: "Hold forms meeting and standardize Healthcare Services forms with SB" },
+  { id: "m16", month: "June", week: "Week 1", stage: "Forms meeting and SB standardization", sector: "Tourism", title: "Hold forms meeting and standardize Tourism forms with SB" },
+
+  { id: "m17", month: "May", week: "Week 2", stage: "App development", sector: "Shared", title: "Set shared application architecture and environments with DIT" },
+  { id: "m18", month: "May", week: "Week 3", stage: "App development", sector: "Education", title: "Develop Education application module" },
+  { id: "m19", month: "May", week: "Week 4", stage: "App development", sector: "Agriculture", title: "Develop Agriculture application module" },
+  { id: "m20", month: "June", week: "Week 1", stage: "App development", sector: "Healthcare Services", title: "Develop Healthcare Services application module" },
+  { id: "m21", month: "June", week: "Week 2", stage: "App development", sector: "Tourism", title: "Develop Tourism application module" },
+  { id: "m22", month: "June", week: "Week 3", stage: "App development", sector: "Shared", title: "Review interoperability alignment with DTCO" },
+  { id: "m23", month: "June", week: "Week 4", stage: "App development", sector: "Shared", title: "Prepare hosting and deployment environments with DIT" },
+
+  { id: "m24", month: "May", week: "Week 4", stage: "User review meeting and tester nomination", sector: "Education", title: "Convene Education review meeting and identify testers" },
+  { id: "m25", month: "June", week: "Week 1", stage: "User review meeting and tester nomination", sector: "Agriculture", title: "Convene Agriculture review meeting and identify testers" },
+  { id: "m26", month: "June", week: "Week 2", stage: "User review meeting and tester nomination", sector: "Healthcare Services", title: "Convene Healthcare review meeting and identify testers" },
+  { id: "m27", month: "June", week: "Week 3", stage: "User review meeting and tester nomination", sector: "Tourism", title: "Convene Tourism review meeting and identify testers" },
+
+  { id: "m28", month: "June", week: "Week 1", stage: "User testing, feedback, and debugging", sector: "Education", title: "Run Education user testing and debug feedback" },
+  { id: "m29", month: "June", week: "Week 2", stage: "User testing, feedback, and debugging", sector: "Agriculture", title: "Run Agriculture user testing and debug feedback" },
+  { id: "m30", month: "June", week: "Week 3", stage: "User testing, feedback, and debugging", sector: "Healthcare Services", title: "Run Healthcare Services user testing and debug feedback" },
+  { id: "m31", month: "June", week: "Week 4", stage: "User testing, feedback, and debugging", sector: "Tourism", title: "Run Tourism user testing and debug feedback" },
+  { id: "m32", month: "July", week: "Week 1", stage: "User testing, feedback, and debugging", sector: "Shared", title: "Complete Security review and remediation" },
+  { id: "m33", month: "July", week: "Week 2", stage: "User testing, feedback, and debugging", sector: "Shared", title: "Complete Data Protection review and compliance actions" },
+
+  { id: "m34", month: "June", week: "Week 4", stage: "Deployment and wider rollout", sector: "Education", title: "Deploy Education application to wider sector users" },
+  { id: "m35", month: "July", week: "Week 1", stage: "Deployment and wider rollout", sector: "Agriculture", title: "Deploy Agriculture application to wider sector users" },
+  { id: "m36", month: "July", week: "Week 2", stage: "Deployment and wider rollout", sector: "Healthcare Services", title: "Deploy Healthcare Services application to wider sector users" },
+  { id: "m37", month: "July", week: "Week 3", stage: "Deployment and wider rollout", sector: "Tourism", title: "Deploy Tourism application to wider sector users" },
+  { id: "m38", month: "July", week: "Week 3", stage: "Deployment and wider rollout", sector: "Shared", title: "Activate production hosting and support with DIT" },
+  { id: "m39", month: "July", week: "Week 4", stage: "Deployment and wider rollout", sector: "Shared", title: "Provide DTCO interoperability support and post-go-live stabilization" }
 ];
 
 const monthOrder = ["April", "May", "June", "July"];
 const weekOrder = ["Week 1", "Week 2", "Week 3", "Week 4"];
-const storageKey = "digitization-milestones-v1";
+const storageKey = "digitization-milestones-v2";
 
 const state = {
   checks: loadChecks(),
@@ -139,9 +146,7 @@ function bindEvents() {
 function buildSummary() {
   const total = milestones.length;
   const done = milestones.filter((item) => state.checks[item.id]).length;
-  const lines = [
-    `Digitization milestones: ${done}/${total} complete`
-  ];
+  const lines = [`Digitization milestones: ${done}/${total} complete`];
 
   ["Education", "Agriculture", "Healthcare Services", "Tourism", "Shared"].forEach((sector) => {
     const items = milestones.filter((item) => item.sector === sector);

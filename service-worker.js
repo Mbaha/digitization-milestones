@@ -1,4 +1,4 @@
-const cacheName = "digitization-milestones-v1";
+const cacheName = "digitization-milestones-v2";
 const appFiles = [
   "./",
   "./index.html",
