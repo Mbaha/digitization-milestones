@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#133b5c">
+  <title>Digitization Milestones</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icon-512.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="hero__eyebrow">NPC Data Office</div>
+      <h1>Digitization Milestones</h1>
+      <p class="hero__text">
+        A mobile tracker for the Education, Agriculture, Healthcare Services, and Tourism timelines.
+      </p>
+      <div class="hero__stats" id="hero-stats" aria-live="polite"></div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel--controls">
+        <div class="panel__header">
+          <h2>Filters</h2>
+          <button class="ghost-button" id="reset-button" type="button">Reset checks</button>
+        </div>
+        <div class="filters">
+          <label class="field">
+            <span>Sector</span>
+            <select id="sector-filter">
+              <option value="all">All sectors</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Month</span>
+            <select id="month-filter">
+              <option value="all">All months</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Stage</span>
+            <select id="stage-filter">
+              <option value="all">All stages</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel panel--overview">
+        <div class="panel__header">
+          <h2>Sector Progress</h2>
+          <button class="ghost-button" id="share-button" type="button">Copy summary</button>
+        </div>
+        <div class="overview-grid" id="overview-grid"></div>
+      </section>
+
+      <section class="panel panel--timeline">
+        <div class="panel__header">
+          <h2>Milestone Board</h2>
+          <div class="panel__meta" id="results-count"></div>
+        </div>
+        <div class="timeline-groups" id="timeline-groups"></div>
+      </section>
+    </main>
+  </div>
+
+  <template id="sector-card-template">
+    <article class="sector-card">
+      <div class="sector-card__head">
+        <h3></h3>
+        <span class="sector-card__ratio"></span>
+      </div>
+      <div class="progress-bar" aria-hidden="true">
+        <span></span>
+      </div>
+      <p class="sector-card__detail"></p>
+    </article>
+  </template>
+
+  <template id="group-template">
+    <section class="month-group">
+      <div class="month-group__title-row">
+        <h3></h3>
+        <span class="month-group__count"></span>
+      </div>
+      <div class="milestone-list"></div>
+    </section>
+  </template>
+
+  <template id="milestone-template">
+    <label class="milestone-card">
+      <input class="milestone-card__checkbox" type="checkbox">
+      <span class="milestone-card__box"></span>
+      <span class="milestone-card__content">
+        <span class="milestone-card__topline">
+          <span class="milestone-card__week"></span>
+          <span class="milestone-card__sector"></span>
+        </span>
+        <span class="milestone-card__title"></span>
+        <span class="milestone-card__stage"></span>
+      </span>
+    </label>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>

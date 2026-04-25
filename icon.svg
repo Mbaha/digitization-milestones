@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Digitization milestones icon">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#143b5c"/>
+      <stop offset="100%" stop-color="#4cb2a7"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="110" fill="url(#bg)"/>
+  <rect x="86" y="116" width="340" height="280" rx="28" fill="#f6f1e8" opacity="0.95"/>
+  <rect x="118" y="160" width="88" height="24" rx="12" fill="#e8b846"/>
+  <rect x="118" y="210" width="190" height="18" rx="9" fill="#d7e3ea"/>
+  <rect x="118" y="248" width="160" height="18" rx="9" fill="#d7e3ea"/>
+  <rect x="118" y="286" width="210" height="18" rx="9" fill="#d7e3ea"/>
+  <circle cx="366" cy="258" r="58" fill="#4cb2a7"/>
+  <path d="M341 258l17 17 34-42" fill="none" stroke="#fffdf9" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+  <rect x="118" y="332" width="120" height="18" rx="9" fill="#d7e3ea"/>
+</svg>
