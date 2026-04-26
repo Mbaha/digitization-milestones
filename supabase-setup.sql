@@ -124,8 +124,8 @@ select tw.id, member_email.email
 from public.team_workspaces tw
 cross join (
   values
-    ('replace-with-team-member-1@example.org'),
-    ('replace-with-team-member-2@example.org')
+    ('andersonkambimba@icloud.com'),
+    ('mbaha@okavango.me')
 ) as member_email(email)
 where tw.slug = 'npc-digitization'
 on conflict do nothing;
