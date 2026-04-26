@@ -36,8 +36,9 @@ self.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
   const isSameOrigin = requestUrl.origin === self.location.origin;
   const isDocument = event.request.mode === "navigate" || event.request.destination === "document";
+  const isConfigFile = isSameOrigin && requestUrl.pathname.endsWith("/supabase-config.js");
 
-  if (isSameOrigin && isDocument) {
+  if ((isSameOrigin && isDocument) || isConfigFile) {
     event.respondWith(networkFirst(event.request));
     return;
   }
